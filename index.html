@@ -1,311 +1,93 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio profissional de Jean Carlos Amorim de Mello: experiência com sistemas ERP/PDV, suporte operacional, melhoria de processos e projetos assistidos por IA.">
-  <meta name="theme-color" content="#101819">
-  <title>Jean Amorim | Sistemas, suporte e melhoria de processos</title>
-  <style>
-    :root {
-      --bg: #101819;
-      --panel: #172324;
-      --panel-2: #1d2c2d;
-      --text: #edf4ef;
-      --muted: #aabbb4;
-      --line: rgba(220, 240, 230, .13);
-      --accent: #a5e6c1;
-      --accent-2: #d1f2df;
-      --ink: #0e2419;
-      --max: 1080px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: radial-gradient(ellipse at 85% -15%, rgba(106, 175, 135, .16), transparent 36%), var(--bg);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-    a { color: var(--accent-2); text-underline-offset: 4px; }
-    a:hover { color: #fff; }
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    header { border-bottom: 1px solid var(--line); }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { font-weight: 750; letter-spacing: -.03em; color: var(--text); text-decoration: none; }
-    .brand span { color: var(--accent); }
-    nav { display: flex; flex-wrap: wrap; gap: 22px; }
-    nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
-    nav a:hover { color: var(--text); }
-    .hero { padding: 92px 0 76px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: .82rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 25px; height: 1px; background: var(--accent); }
-    h1 { max-width: 850px; margin: 20px 0 18px; font-size: clamp(2.55rem, 6.8vw, 5.25rem); line-height: 1.02; letter-spacing: -.065em; }
-    h1 em { color: var(--accent); font-style: normal; }
-    .lead { max-width: 720px; color: var(--muted); font-size: clamp(1.03rem, 2vw, 1.2rem); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 17px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; font-weight: 700; }
-    .button.primary { color: var(--ink); background: var(--accent); border-color: var(--accent); }
-    .button.secondary { color: var(--text); background: transparent; }
-    .meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; color: var(--muted); font-size: .92rem; }
-    .meta span { display: inline-flex; align-items: center; gap: 7px; }
-    section { padding: 62px 0; border-top: 1px solid var(--line); }
-    .section-head { max-width: 720px; margin-bottom: 28px; }
-    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 800; }
-    h2 { margin: 8px 0 10px; font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.045em; line-height: 1.1; }
-    h3 { margin: 0 0 9px; font-size: 1.15rem; letter-spacing: -.02em; }
-    p { margin: 0 0 14px; }
-    .muted { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .card { grid-column: span 6; padding: 24px; background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012)), var(--panel); border: 1px solid var(--line); border-radius: 16px; }
-    .card.wide { grid-column: span 12; }
-    .tagrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 17px 0 0; }
-    .tag { padding: 5px 10px; border-radius: 999px; background: rgba(165,230,193,.09); border: 1px solid rgba(165,230,193,.2); color: var(--accent-2); font-size: .79rem; }
-    ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
-    li { margin: 6px 0; }
-    .callout { padding: 17px 18px; margin-top: 18px; background: rgba(165,230,193,.07); border: 1px solid rgba(165,230,193,.2); border-radius: 12px; color: var(--muted); font-size: .93rem; }
-    .callout strong { color: var(--accent-2); }
-    .timeline { display: grid; gap: 18px; }
-    .job { padding: 22px 0 22px 22px; border-left: 2px solid rgba(165,230,193,.45); }
-    .job .date { color: var(--accent); font-size: .84rem; font-weight: 750; }
-    .job h3 { margin-top: 5px; }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill { padding: 9px 13px; border: 1px solid var(--line); background: var(--panel); border-radius: 9px; color: var(--text); font-size: .92rem; }
-    footer { padding: 34px 0 46px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
-    .footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
-    .small { font-size: .83rem; }
-    @media (max-width: 700px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 18px 0; }
-      nav { gap: 14px; }
-      .hero { padding: 66px 0 56px; }
-      section { padding: 48px 0; }
-      .card, .card.wide { grid-column: span 12; }
-      .wrap { width: min(var(--max), calc(100% - 30px)); }
-    }
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17384D">
+<meta name="description" content="Portfólio profissional de Jean Carlos Amorim de Mello — sistemas ERP/PDV, suporte operacional, requisitos e testes funcionais.">
+<title>Jean Amorim | Sistemas, suporte e processos</title>
+<style>
+:root{--navy:#17384D;--navy2:#244B61;--teal:#137C78;--teal2:#0F6663;--bg:#F4F7F8;--white:#fff;--text:#202B33;--muted:#56636D;--line:#D9E3E7;--pale:#E8F3F1;--shadow:0 14px 36px #17384d12;--max:1080px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,Arial,sans-serif}a{color:var(--teal2);text-underline-offset:4px}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;letter-spacing:-.04em;color:var(--navy);text-decoration:none}.brand span,h1 em{color:var(--teal);font-style:normal}nav{display:flex;gap:22px;flex-wrap:wrap}nav a{color:var(--muted);font-size:.9rem;text-decoration:none;font-weight:650}.hero{padding:78px 0;background:linear-gradient(115deg,#eaf0f4,#f8fafb 58%,#e8f3f1);border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}.kicker{color:var(--teal);font-size:.77rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}h1{color:var(--navy);font-size:clamp(2.5rem,5.6vw,4.5rem);line-height:1.04;letter-spacing:-.06em;margin:15px 0}.lead{max-width:680px;color:var(--muted);font-size:1.1rem}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--navy);text-decoration:none;font-weight:750;font-size:.92rem}.btn.primary{background:var(--teal);border-color:var(--teal);color:white}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}details.contact{position:relative}details.contact summary{list-style:none;cursor:pointer}details.contact summary::-webkit-details-marker{display:none}.contact-options{position:absolute;top:calc(100% + 5px);left:0;z-index:3;width:285px;padding:12px;display:grid;gap:8px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.contact-options .btn{width:100%}.note{font-size:.78rem;color:var(--muted);padding:3px}.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:23px;color:var(--muted);font-size:.9rem}.meta a{font-weight:700}.hero-panel,.card,.job,.contact-panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.hero-panel{padding:20px}.panel-label{font-size:.76rem;color:var(--muted);font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}.step{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:10px;margin:9px 0}.num{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--pale);color:var(--teal2);font-weight:800}.step b{display:block;color:var(--navy)}.step small{color:var(--muted)}.arrow{color:var(--teal);font-weight:800}section{padding:65px 0;border-bottom:1px solid var(--line)}h2{color:var(--navy);font-size:clamp(1.8rem,3.6vw,2.55rem);letter-spacing:-.045em;line-height:1.12;margin:8px 0 12px}h3{color:var(--navy);margin:0 0 9px;font-size:1.14rem}.section-head{max-width:750px;margin-bottom:28px}.muted,li{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 6;padding:23px}.wide{grid-column:span 12}.project{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;margin-top:18px}.project.reverse{grid-template-columns:.9fr 1.1fr}.project.reverse .visual{order:0}.visual{padding:12px;background:linear-gradient(140deg,#f1f6f7,#eaf0f4);border:1px solid var(--line);border-radius:13px}.visual svg{width:100%;height:auto;display:block}.caption{text-align:center;font-size:.74rem;color:var(--muted);margin:8px 0 0}.mini{padding:15px;background:#f8fafb;border:1px solid var(--line);border-radius:11px;margin-top:12px}.callout{padding:14px 16px;margin-top:15px;background:#f2f6f8;border-left:3px solid var(--teal);border-radius:9px;color:var(--muted);font-size:.9rem}.callout b{color:var(--navy)}ul{padding-left:20px;margin:10px 0}li{margin:6px 0}.tags,.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.tag,.skill{border:1px solid #c8e2de;background:var(--pale);color:var(--teal2);padding:5px 10px;border-radius:999px;font-size:.78rem;font-weight:650}.skill{border-color:var(--line);background:white;color:var(--navy);padding:8px 12px;border-radius:8px;font-size:.88rem}.timeline{display:grid;gap:14px}.job{padding:21px;border-left:3px solid var(--teal)}.date{color:var(--teal);font-size:.8rem;font-weight:800}.contact-panel{padding:28px;background:linear-gradient(115deg,#eaf0f4,#e8f3f1)}.contact-grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.email{margin-top:10px;font-size:.9rem;color:var(--muted)}.email a{font-weight:700}footer{padding:28px 0;color:var(--muted);font-size:.86rem}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footlinks{display:flex;gap:15px;flex-wrap:wrap}.footlinks a{color:var(--navy);font-weight:700;text-decoration:none}@media(max-width:780px){.hero-grid,.project,.project.reverse,.contact-grid{grid-template-columns:1fr}.hero{padding:55px 0}.card,.wide{grid-column:span 12}.nav{align-items:flex-start;flex-direction:column;padding:14px 0}nav{gap:12px 16px}.project.reverse .visual{order:0}}@media(max-width:560px){.wrap{width:calc(100% - 30px)}section{padding:50px 0}.card{padding:18px}.contact-panel{padding:20px}.contact{width:100%}.contact summary{width:100%}.contact-options{width:min(285px,calc(100vw - 40px))}}
+
+/* Controle de tema: a paleta escura preserva o azul-marinho e o verde-petróleo. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--white);color:var(--navy);font:700 .84rem Inter,Arial,sans-serif;cursor:pointer;white-space:nowrap;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.theme-toggle:hover{border-color:var(--teal);transform:translateY(-1px)}
+.theme-toggle:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.theme-toggle span{font-size:1.08rem;line-height:1}
+.nav-right{display:flex;align-items:center;gap:18px}
+@media(max-width:780px){.nav-right{width:100%;align-items:flex-start;flex-wrap:wrap;gap:12px}.nav-right nav{width:100%}}
+
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --navy:#DCE8EE;--navy2:#C3D6DF;--teal:#73C9B8;--teal2:#8ADBCB;
+  --bg:#10191F;--white:#1B2932;--text:#E7EEF2;--muted:#B4C1C9;
+  --line:#344650;--pale:#203B3B;--shadow:0 14px 36px rgba(0,0,0,.28);
+}
+:root[data-theme="dark"] body{background:var(--bg);color:var(--text)}
+:root[data-theme="dark"] header{background:rgba(16,25,31,.94);border-color:var(--line)}
+:root[data-theme="dark"] .hero{background:linear-gradient(115deg,#182832 0%,#15232B 58%,#18322F 100%);border-color:var(--line)}
+:root[data-theme="dark"] .btn{background:#22323C;color:var(--navy);border-color:var(--line)}
+:root[data-theme="dark"] .btn.primary{background:#167D75;border-color:#238F84;color:#fff}
+:root[data-theme="dark"] .contact-options{background:#1B2932;border-color:var(--line)}
+:root[data-theme="dark"] .hero-panel,:root[data-theme="dark"] .card,:root[data-theme="dark"] .job{background:#1B2932;border-color:var(--line)}
+:root[data-theme="dark"] .step{border-color:var(--line);background:#202F38}
+:root[data-theme="dark"] .num{background:#244541;color:#A5E4D6}
+:root[data-theme="dark"] .mini{background:#202F38;border-color:var(--line)}
+:root[data-theme="dark"] .callout{background:#202F38;border-left-color:var(--teal);color:var(--muted)}
+:root[data-theme="dark"] .tag{background:#244541;border-color:#37665F;color:#A9E4D8}
+:root[data-theme="dark"] .skill{background:#202F38;border-color:var(--line);color:var(--navy)}
+:root[data-theme="dark"] .visual{background:linear-gradient(140deg,#202F38,#1B2932);border-color:var(--line)}
+:root[data-theme="dark"] .visual svg{filter:brightness(.78) saturate(.82)}
+:root[data-theme="dark"] .contact-panel{background:linear-gradient(115deg,#1B2D39,#1B3936);border-color:var(--line)}
+:root[data-theme="dark"] .footlinks a{color:var(--navy2)}
+:root[data-theme="dark"] section{border-color:var(--line)}
+@media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+</style></head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#inicio">JEAN<span>.</span>AMORIM</a>
-      <nav aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio" style="border-top:0">
-      <div class="wrap">
-        <div class="eyebrow">Portfólio profissional</div>
-        <h1>Sistemas, suporte e <em>melhoria de processos.</em></h1>
-        <p class="lead">Sou Jean Carlos Amorim de Mello. Tenho experiência prática com sistemas ERP/PDV, apoio a usuários e rotinas administrativas. Gosto de entender problemas do dia a dia, organizar requisitos e buscar soluções que tornem o trabalho mais claro e eficiente.</p>
-        <div class="actions">
-          <a class="button primary" href="#projetos">Conheça meus projetos <span aria-hidden="true">↓</span></a>
-          <a class="button secondary" href="mailto:jean.trabalho2004@gmail.com">Entrar em contato</a>
-        </div>
-        <div class="meta">
-          <span>⌖ Braço do Norte, SC — Brasil</span>
-          <span>↗ <a href="https://www.linkedin.com/in/jean-amorim" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-          <span>✉ <a href="mailto:jean.trabalho2004@gmail.com">E-mail</a></span>
-        </div>
-      </div>
-    </section>
-
-    <section id="sobre">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">01 / Sobre</div>
-          <h2>Experiência prática, curiosidade técnica e vontade de evoluir.</h2>
-          <p class="muted">Minha trajetória começou no atendimento e na operação de comércio. Nesse ambiente, passei a lidar cada vez mais com sistemas de gestão, dificuldades de usuários, cadastros, registros financeiros e melhorias de processos. Hoje busco uma oportunidade para desenvolver minha carreira em sistemas, suporte e tecnologia.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>O que já faço</h3>
-            <ul>
-              <li>Operação prática de sistemas ERP e PDV.</li>
-              <li>Cadastro, correção e atualização de produtos.</li>
-              <li>Apoio a colegas na utilização de sistemas.</li>
-              <li>Pesquisa e investigação de problemas operacionais.</li>
-              <li>Registro e acompanhamento de despesas e pagamentos.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Como gosto de trabalhar</h3>
-            <ul>
-              <li>Entender o problema antes de propor uma solução.</li>
-              <li>Organizar necessidades e explicar o resultado esperado.</li>
-              <li>Testar, observar falhas e documentar melhorias.</li>
-              <li>Aprender de forma prática, com orientação e colaboração.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projetos">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">02 / Projetos e iniciativas</div>
-          <h2>Problemas reais transformados em propostas de solução.</h2>
-          <p class="muted">Estudos de caso apresentados sem dados de clientes, credenciais, imagens internas ou informações confidenciais.</p>
-        </div>
-        <div class="grid">
-          <article class="card wide">
-            <div class="section-kicker">Projeto 01 · Aplicação web assistida por IA</div>
-            <h3>Sistema de organização de fiados e contas de clientes</h3>
-            <p class="muted">Protótipo funcional concebido para responder a uma necessidade de um pequeno comércio: centralizar registros de clientes, compras, pagamentos e comprovantes em uma aplicação web.</p>
-            <div class="grid" style="margin-top:18px">
-              <div class="card" style="grid-column:span 6; padding:18px">
-                <h3>Minha participação</h3>
-                <ul>
-                  <li>Identificação do problema operacional.</li>
-                  <li>Definição das funcionalidades desejadas.</li>
-                  <li>Descrição de requisitos e solicitações à ferramenta de IA.</li>
-                  <li>Testes funcionais, identificação de falhas e pedidos de correção.</li>
-                  <li>Acompanhamento das melhorias entre versões.</li>
-                </ul>
-              </div>
-              <div class="card" style="grid-column:span 6; padding:18px">
-                <h3>Funcionalidades previstas no protótipo</h3>
-                <ul>
-                  <li>Cadastro e consulta de clientes.</li>
-                  <li>Registro de compras, pagamentos e saldos.</li>
-                  <li>Comprovantes com imagens.</li>
-                  <li>Compartilhamento de informações por WhatsApp.</li>
-                  <li>Emissão de comprovantes em impressora térmica.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="callout"><strong>Transparência sobre a implementação:</strong> o desenvolvimento do código foi realizado por uma ferramenta de IA a partir das minhas instruções. Não escrevi nem editei diretamente o código. Minha contribuição esteve na identificação da necessidade, definição de requisitos, avaliação do funcionamento e solicitação de melhorias. O protótipo foi publicado para testes, mas não chegou a ser adotado na rotina da equipe.</div>
-            <div class="tagrow">
-              <span class="tag">Levantamento de requisitos</span>
-              <span class="tag">Testes funcionais</span>
-              <span class="tag">Melhoria contínua</span>
-              <span class="tag">Prototipagem assistida por IA</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="section-kicker">Projeto 02 · Organização administrativa</div>
-            <h3>Controle de despesas e pagamentos</h3>
-            <p class="muted">Participação na especificação, teste e utilização de uma planilha para registrar despesas, categorias, vencimentos, pagamentos realizados e pendências.</p>
-            <ul>
-              <li>Documento inicial com requisitos e estrutura desejada.</li>
-              <li>Testes da primeira versão e identificação de situações não previstas.</li>
-              <li>Registro documentado de erros e melhorias para implementação com IA.</li>
-              <li>Lançamento individual das despesas na rotina.</li>
-            </ul>
-            <div class="callout"><strong>Transparência:</strong> a planilha foi construída com auxílio de IA. Não desenvolvi suas fórmulas nem domino a construção de planilhas complexas. Minha participação foi na especificação, validação, refinamento e utilização diária.</div>
-            <div class="tagrow">
-              <span class="tag">Organização de informações</span>
-              <span class="tag">Documentação</span>
-              <span class="tag">Testes e validação</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="section-kicker">Projeto 03 · Automação inicial</div>
-            <h3>Atalhos e calculadora com AutoHotkey</h3>
-            <p class="muted">Pequenas automações criadas com assistência de IA para reduzir etapas repetitivas em um sistema de frente de caixa que oferecia poucos atalhos.</p>
-            <ul>
-              <li>Atalhos de teclado para operações recorrentes.</li>
-              <li>Calculadora prática com acesso por atalhos.</li>
-              <li>Utilização própria e apoio à rotina de colegas.</li>
-            </ul>
-            <div class="callout"><strong>Transparência:</strong> experiência inicial com scripts assistidos por IA. Tenho noções básicas, mas ainda não desenvolvo automações complexas de forma independente.</div>
-            <div class="tagrow">
-              <span class="tag">AutoHotkey v2</span>
-              <span class="tag">Automação de tarefas</span>
-              <span class="tag">Iniciante</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experiencia">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">03 / Experiência profissional</div>
-          <h2>Vivência em operação, atendimento e sistemas comerciais.</h2>
-        </div>
-        <div class="timeline">
-          <article class="job">
-            <div class="date">FEVEREIRO/2025 — ATUAL</div>
-            <h3>Operador de Caixa · Panificadora Travessão</h3>
-            <p class="muted">Braço do Norte, SC</p>
-            <ul>
-              <li>Operação de caixa e utilização diária do ERP Uniplus.</li>
-              <li>Cadastro, atualização, correção e precificação de produtos.</li>
-              <li>Apoio aos usuários e treinamento de um colaborador no sistema.</li>
-              <li>Investigação inicial de problemas em sistemas, computadores e impressoras.</li>
-              <li>Registro e acompanhamento de despesas e pagamentos em planilha.</li>
-            </ul>
-          </article>
-          <article class="job">
-            <div class="date">NOVEMBRO/2022 — ABRIL/2024</div>
-            <h3>Atendente de Cafeteria · Cafeteria Doce Requinte</h3>
-            <p class="muted">Gravatal, SC</p>
-            <ul>
-              <li>Atendimento ao público e operação do sistema Pantera Food.</li>
-              <li>Abertura e fechamento de caixa e do estabelecimento.</li>
-              <li>Preparação de cafés e bebidas.</li>
-              <li>Treinamento de novos colaboradores e atuação em equipe reduzida.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="competencias">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">04 / Competências demonstradas</div>
-          <h2>Conhecimentos construídos na prática.</h2>
-        </div>
-        <div class="skills">
-          <span class="skill">ERP Uniplus</span>
-          <span class="skill">PDV Pantera Food</span>
-          <span class="skill">Suporte operacional a usuários</span>
-          <span class="skill">Treinamento de colegas</span>
-          <span class="skill">Cadastro e correção de produtos</span>
-          <span class="skill">Rotinas de caixa</span>
-          <span class="skill">Registro de despesas</span>
-          <span class="skill">Levantamento de requisitos</span>
-          <span class="skill">Testes funcionais</span>
-          <span class="skill">AutoHotkey — básico</span>
-          <span class="skill">Prototipagem com IA</span>
-          <span class="skill">Resolução de problemas</span>
-        </div>
-        <div class="callout"><strong>Em desenvolvimento:</strong> busco aprofundar meus conhecimentos em programação, sistemas e ferramentas de tecnologia por meio de experiência prática, orientação e aprendizado contínuo.</div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">05 / Contato</div>
-          <h2>Vamos conversar?</h2>
-          <p class="muted">Estou aberto a oportunidades iniciais em suporte de sistemas, implantação, automação e áreas relacionadas à tecnologia, além de funções administrativas alinhadas à minha experiência.</p>
-        </div>
-        <div class="actions">
-          <a class="button primary" href="mailto:jean.trabalho2004@gmail.com">jean.trabalho2004@gmail.com</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/jean-amorim" target="_blank" rel="noopener noreferrer">Meu LinkedIn ↗</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-row">
-      <div>© <span id="year">2026</span> Jean Carlos Amorim de Mello</div>
-      <div class="small">Portfólio em evolução · Braço do Norte, SC</div>
-    </div>
-  </footer>
-</body>
-</html>
+<header><div class="wrap nav"><a class="brand" href="#inicio">JEAN<span>.</span>AMORIM</a><div class="nav-right"><nav aria-label="Navegação"><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#experiencia">Experiência</a><a href="#competencias">Competências</a><a href="#contato">Contato</a></nav><button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false"><span aria-hidden="true">☾</span> Modo escuro</button></div></div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid"><div><div class="kicker">Portfólio profissional</div><h1>Sistemas, suporte e <em>melhoria de processos.</em></h1><p class="lead">Sou Jean Carlos Amorim de Mello. Tenho experiência prática com sistemas ERP/PDV, apoio a usuários e rotinas administrativas. Gosto de entender problemas do dia a dia, organizar requisitos e buscar soluções que tornem o trabalho mais claro e eficiente.</p><div class="actions"><a class="btn" href="#projetos">Conheça meus projetos ↓</a><details class="contact"><summary class="btn primary">Entrar em contato ↗</summary><div class="contact-options"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jean.trabalho2004%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio&amp;body=Ol%C3%A1%2C%20Jean!%20Encontrei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer">Enviar e-mail ↗</a><a class="btn" href="https://wa.me/5548998288605?text=Ol%C3%A1%2C%20Jean!%20Encontrei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><div class="note">A mensagem já vem preenchida e pode ser editada antes do envio.</div></div></details></div><div class="meta"><span>⌖ Braço do Norte, SC — Brasil</span><span>↗ <a href="https://www.linkedin.com/in/jean-amorim" target="_blank" rel="noopener noreferrer">LinkedIn</a></span><span>✉ <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jean.trabalho2004%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio" target="_blank" rel="noopener noreferrer">E-mail</a></span></div></div><aside class="hero-panel"><div class="panel-label">Meu processo de trabalho</div><div class="step"><span class="num">01</span><span><b>Entender</b><small>Identificar o problema real</small></span><span class="arrow">↘</span></div><div class="step"><span class="num">02</span><span><b>Especificar</b><small>Organizar necessidades</small></span><span class="arrow">↘</span></div><div class="step"><span class="num">03</span><span><b>Testar</b><small>Verificar resultados e falhas</small></span><span class="arrow">↘</span></div><div class="step"><span class="num">04</span><span><b>Melhorar</b><small>Documentar e validar ajustes</small></span><span class="arrow">✓</span></div></aside></div></section>
+<section id="sobre"><div class="wrap"><div class="section-head"><div class="kicker">01 / Sobre</div><h2>Experiência prática, curiosidade técnica e vontade de evoluir.</h2><p class="muted">Minha trajetória começou no atendimento e na operação de comércio. Nesse ambiente, passei a lidar cada vez mais com sistemas de gestão, dificuldades de usuários, cadastros, registros financeiros e melhorias de processos. Hoje busco uma oportunidade para desenvolver minha carreira em sistemas, suporte e tecnologia.</p></div><div class="grid"><article class="card"><h3>O que já faço</h3><ul><li>Operação prática de sistemas ERP e PDV.</li><li>Cadastro, correção e atualização de produtos.</li><li>Apoio a colegas na utilização de sistemas.</li><li>Pesquisa e investigação de problemas operacionais.</li><li>Registro e acompanhamento de despesas e pagamentos.</li></ul></article><article class="card"><h3>Como gosto de trabalhar</h3><ul><li>Entender o problema antes de propor uma solução.</li><li>Organizar necessidades e explicar o resultado esperado.</li><li>Testar, observar falhas e documentar melhorias.</li><li>Aprender de forma prática, com orientação e colaboração.</li></ul></article></div></div></section>
+<section id="projetos"><div class="wrap"><div class="section-head"><div class="kicker">02 / Projetos e iniciativas</div><h2>Problemas reais transformados em propostas de solução.</h2><p class="muted">As imagens são ilustrações conceituais para explicar os projetos. Não são capturas de tela dos sistemas originais e não contêm dados reais de clientes ou da empresa.</p></div><div class="grid">
+<article class="card wide"><div class="kicker">Projeto 01 · Aplicação web assistida por IA</div><div class="project"><div><h3>Sistema de organização de fiados e contas de clientes</h3><p class="muted">Protótipo funcional concebido para responder a uma necessidade de um pequeno comércio: centralizar registros de clientes, compras, pagamentos e comprovantes em uma aplicação web.</p><div class="mini"><h3>Minha participação</h3><ul><li>Identificação do problema operacional.</li><li>Definição das funcionalidades desejadas.</li><li>Descrição de requisitos e solicitações à ferramenta de IA.</li><li>Testes funcionais, identificação de falhas e pedidos de correção.</li><li>Acompanhamento das melhorias entre versões.</li></ul></div><div class="callout"><b>Transparência:</b> o código foi gerado por uma ferramenta de IA a partir das minhas instruções. Não escrevi nem editei diretamente o código. Minha contribuição esteve na identificação da necessidade, definição de requisitos, avaliação do funcionamento e solicitação de melhorias. O protótipo foi publicado para testes, mas não chegou a ser adotado na rotina da equipe.</div><div class="tags"><span class="tag">Requisitos</span><span class="tag">Testes funcionais</span><span class="tag">Melhoria contínua</span><span class="tag">IA</span></div></div><figure class="visual"><svg viewBox="0 0 520 330" role="img" aria-label="Ilustração conceitual de painel de clientes, compras, saldos e comprovantes"><rect x="5" y="5" width="510" height="320" rx="14" fill="white" stroke="#D9E3E7"/><path d="M5 20a15 15 0 0 1 15-15h480a15 15 0 0 1 15 15v30H5z" fill="#17384D"/><circle cx="27" cy="27" r="5" fill="#8BC8B9"/><circle cx="44" cy="27" r="5" fill="#C3D8E0"/><circle cx="61" cy="27" r="5" fill="#EAC77C"/><text x="83" y="31" fill="white" font-size="13" font-weight="bold">CONTROLE DE CLIENTES</text><rect x="25" y="68" width="470" height="48" rx="8" fill="#E8F3F1"/><text x="40" y="88" fill="#56636D" font-size="10">VISÃO GERAL</text><text x="40" y="106" fill="#17384D" font-size="16" font-weight="bold">Movimentações e saldos</text><g><rect x="25" y="130" width="145" height="65" rx="8" fill="#F4F7F8" stroke="#D9E3E7"/><rect x="185" y="130" width="145" height="65" rx="8" fill="#F4F7F8" stroke="#D9E3E7"/><rect x="345" y="130" width="150" height="65" rx="8" fill="#F4F7F8" stroke="#D9E3E7"/><g fill="#56636D" font-size="10"><text x="39" y="151">CLIENTES</text><text x="199" y="151">MOVIMENTOS</text><text x="359" y="151">ACOMPANHAMENTO</text></g><g fill="#17384D" font-size="19" font-weight="bold"><text x="39" y="179">Cadastro</text><text x="199" y="179" fill="#137C78">Compras</text><text x="359" y="179">Saldos</text></g></g><text x="25" y="222" fill="#17384D" font-size="12" font-weight="bold">Fluxo de uma movimentação</text><g font-size="11" font-weight="bold" text-anchor="middle"><rect x="25" y="238" width="100" height="45" rx="7" fill="#F2F6F8" stroke="#D9E3E7"/><text x="75" y="265" fill="#17384D">Cliente</text><rect x="151" y="238" width="100" height="45" rx="7" fill="#F2F6F8" stroke="#D9E3E7"/><text x="201" y="265" fill="#17384D">Compra</text><rect x="277" y="238" width="100" height="45" rx="7" fill="#E8F3F1" stroke="#C8E2DE"/><text x="327" y="265" fill="#0F6663">Saldo</text><rect x="403" y="238" width="92" height="45" rx="7" fill="#F2F6F8" stroke="#D9E3E7"/><text x="449" y="265" fill="#17384D">Registro</text></g><g stroke="#137C78" stroke-width="2" fill="none"><path d="M130 260h15m-5-5 5 5-5 5M256 260h15m-5-5 5 5-5 5M382 260h15m-5-5 5 5-5 5"/></g><text x="25" y="306" fill="#7A8991" font-size="9">ILUSTRAÇÃO CONCEITUAL · NÃO É TELA REAL</text></svg><figcaption class="caption">Representação visual do fluxo previsto no protótipo.</figcaption></figure></div></article>
+<article class="card"><div class="kicker">Projeto 02 · Organização administrativa</div><div class="project reverse"><figure class="visual"><svg viewBox="0 0 460 290" role="img" aria-label="Ilustração de planilha fictícia para controle de despesas"><rect x="5" y="5" width="450" height="280" rx="13" fill="white" stroke="#D9E3E7"/><path d="M5 18a13 13 0 0 1 13-13h424a13 13 0 0 1 13 13v32H5z" fill="#17384D"/><text x="24" y="34" fill="white" font-size="13" font-weight="bold">CONTROLE DE DESPESAS</text><g><rect x="23" y="65" width="125" height="52" rx="7" fill="#E8F3F1"/><rect x="161" y="65" width="125" height="52" rx="7" fill="#F2F6F8"/><rect x="299" y="65" width="138" height="52" rx="7" fill="#F2F6F8"/><g fill="#56636D" font-size="9"><text x="34" y="83">REGISTROS</text><text x="172" y="83">ACOMPANHAMENTO</text><text x="310" y="83">SITUAÇÃO</text></g><g fill="#17384D" font-size="16" font-weight="bold"><text x="34" y="105">Despesas</text><text x="172" y="105" fill="#137C78">Vencimentos</text><text x="310" y="105">Pago / pendente</text></g></g><text x="23" y="145" fill="#17384D" font-size="11" font-weight="bold">Exemplo de organização dos registros</text><rect x="23" y="157" width="414" height="24" rx="4" fill="#EAF0F4"/><g fill="#56636D" font-size="9" font-weight="bold"><text x="33" y="173">DESCRIÇÃO</text><text x="205" y="173">VENCIMENTO</text><text x="340" y="173">SITUAÇÃO</text></g><g fill="#344955" font-size="10"><text x="33" y="202">Despesa recorrente</text><text x="205" y="202">Mês</text><text x="340" y="202" fill="#137C78">Registrada</text><text x="33" y="230">Pagamento avulso</text><text x="205" y="230">Data</text><text x="340" y="230" fill="#137C78">Atualizada</text><text x="33" y="258">Parcela</text><text x="205" y="258">Data</text><text x="340" y="258" fill="#137C78">Acompanhar</text></g><path d="M23 210h414M23 238h414" stroke="#E4EAED"/><text x="23" y="276" fill="#7A8991" font-size="8">ILUSTRAÇÃO · SEM DADOS REAIS</text></svg><figcaption class="caption">Exemplo fictício dos campos organizados.</figcaption></figure><div><h3>Controle de despesas e pagamentos</h3><p class="muted">Participação na especificação, teste e utilização de uma planilha para registrar despesas, categorias, vencimentos, pagamentos e pendências.</p><ul><li>Documento inicial com requisitos e estrutura desejada.</li><li>Testes da primeira versão e identificação de situações não previstas.</li><li>Registro documentado de erros e melhorias.</li><li>Lançamento individual das despesas na rotina.</li></ul><div class="callout"><b>Transparência:</b> a planilha foi construída com auxílio de IA. Não desenvolvi suas fórmulas nem domino a construção de planilhas complexas. Minha participação foi na especificação, validação, refinamento e utilização diária.</div></div></div><div class="tags"><span class="tag">Documentação</span><span class="tag">Testes e validação</span><span class="tag">Organização</span></div></article>
+<article class="card"><div class="kicker">Projeto 03 · Automação inicial</div><div class="project reverse"><figure class="visual"><svg viewBox="0 0 460 290" role="img" aria-label="Ilustração de atalhos de teclado e calculadora"><rect x="5" y="5" width="450" height="280" rx="13" fill="white" stroke="#D9E3E7"/><rect x="22" y="22" width="190" height="245" rx="10" fill="#F4F7F8" stroke="#D9E3E7"/><text x="39" y="48" fill="#17384D" font-size="12" font-weight="bold">ATALHOS DE TECLADO</text><g text-anchor="middle" font-size="12" font-weight="bold"><rect x="39" y="66" width="48" height="39" rx="6" fill="white" stroke="#C9D7DD"/><rect x="94" y="66" width="48" height="39" rx="6" fill="white" stroke="#C9D7DD"/><rect x="149" y="66" width="45" height="39" rx="6" fill="#E8F3F1" stroke="#B8DCD5"/><text x="63" y="91" fill="#17384D">Ctrl</text><text x="118" y="91" fill="#17384D">Alt</text><text x="171" y="91" fill="#0F6663">K</text></g><rect x="39" y="118" width="155" height="49" rx="7" fill="white" stroke="#D9E3E7"/><text x="116" y="138" fill="#56636D" font-size="9" text-anchor="middle">AÇÃO RÁPIDA</text><text x="116" y="155" fill="#17384D" font-size="12" text-anchor="middle">Reduzir etapas</text><rect x="39" y="180" width="155" height="49" rx="7" fill="#E8F3F1" stroke="#C8E2DE"/><text x="116" y="200" fill="#56636D" font-size="9" text-anchor="middle">OBJETIVO</text><text x="116" y="217" fill="#0F6663" font-size="12" text-anchor="middle">Agilizar tarefas</text><rect x="230" y="22" width="207" height="245" rx="10" fill="#17384D"/><text x="249" y="48" fill="#D6E9E7" font-size="12" font-weight="bold">CALCULADORA</text><rect x="249" y="63" width="169" height="43" rx="6" fill="#F8FBFC"/><text x="400" y="91" fill="#17384D" font-size="20" text-anchor="end" font-weight="bold">123 + 45</text><g fill="#F3F7F8" stroke="#CAD8DE"><rect x="249" y="117" width="37" height="29" rx="5"/><rect x="293" y="117" width="37" height="29" rx="5"/><rect x="337" y="117" width="37" height="29" rx="5"/><rect x="381" y="117" width="37" height="29" rx="5"/><rect x="249" y="154" width="37" height="29" rx="5"/><rect x="293" y="154" width="37" height="29" rx="5"/><rect x="337" y="154" width="37" height="29" rx="5"/><rect x="381" y="154" width="37" height="29" rx="5"/><rect x="249" y="191" width="37" height="29" rx="5"/><rect x="293" y="191" width="37" height="29" rx="5"/><rect x="337" y="191" width="37" height="29" rx="5"/><rect x="381" y="191" width="37" height="29" rx="5"/></g><g fill="#17384D" font-size="10" text-anchor="middle"><text x="267" y="136">7</text><text x="311" y="136">8</text><text x="355" y="136">9</text><text x="399" y="136">÷</text><text x="267" y="173">4</text><text x="311" y="173">5</text><text x="355" y="173">6</text><text x="399" y="173">×</text><text x="267" y="210">1</text><text x="311" y="210">2</text><text x="355" y="210">3</text><text x="399" y="210">=</text></g><text x="22" y="280" fill="#7A8991" font-size="8">ILUSTRAÇÃO · NÃO É CAPTURA DO SCRIPT</text></svg><figcaption class="caption">Representação conceitual dos atalhos e calculadora.</figcaption></figure><div><h3>Atalhos e calculadora com AutoHotkey</h3><p class="muted">Pequenas automações criadas com assistência de IA para reduzir etapas repetitivas em um sistema de frente de caixa que oferecia poucos atalhos.</p><ul><li>Atalhos de teclado para operações recorrentes.</li><li>Calculadora prática com acesso por atalhos.</li><li>Utilização própria e apoio à rotina de colegas.</li></ul><div class="callout"><b>Transparência:</b> experiência inicial com scripts assistidos por IA. Tenho noções básicas, mas ainda não desenvolvo automações complexas de forma independente.</div></div></div><div class="tags"><span class="tag">AutoHotkey v2</span><span class="tag">Automação básica</span><span class="tag">Iniciante</span></div></article>
+</div></div></section>
+<section id="experiencia"><div class="wrap"><div class="section-head"><div class="kicker">03 / Experiência profissional</div><h2>Vivência em operação, atendimento e sistemas comerciais.</h2></div><div class="timeline"><article class="job"><div class="date">FEVEREIRO/2025 — ATUAL</div><h3>Operador de Caixa · Panificadora Travessão</h3><p class="muted">Braço do Norte, SC</p><ul><li>Operação de caixa e utilização diária do ERP Uniplus.</li><li>Cadastro, atualização, correção e precificação de produtos.</li><li>Apoio aos usuários e treinamento de um colaborador no sistema.</li><li>Investigação inicial de problemas em sistemas, computadores e impressoras.</li><li>Registro e acompanhamento de despesas e pagamentos em planilha.</li></ul></article><article class="job"><div class="date">NOVEMBRO/2022 — ABRIL/2024</div><h3>Atendente de Cafeteria · Cafeteria Doce Requinte</h3><p class="muted">Gravatal, SC</p><ul><li>Atendimento ao público e operação do sistema Pantera Food.</li><li>Abertura e fechamento de caixa e do estabelecimento.</li><li>Preparação de cafés e bebidas.</li><li>Treinamento de novos colaboradores e atuação em equipe reduzida.</li></ul></article></div></div></section>
+<section id="competencias"><div class="wrap"><div class="section-head"><div class="kicker">04 / Competências demonstradas</div><h2>Conhecimentos construídos na prática.</h2></div><div class="skills"><span class="skill">ERP Uniplus</span><span class="skill">PDV Pantera Food</span><span class="skill">Suporte operacional a usuários</span><span class="skill">Treinamento de colegas</span><span class="skill">Cadastro e correção de produtos</span><span class="skill">Rotinas de caixa</span><span class="skill">Registro de despesas</span><span class="skill">Levantamento de requisitos</span><span class="skill">Testes funcionais</span><span class="skill">AutoHotkey — básico</span><span class="skill">Prototipagem com IA</span><span class="skill">Resolução de problemas</span></div><div class="callout"><b>Em desenvolvimento:</b> busco aprofundar meus conhecimentos em programação, sistemas e ferramentas de tecnologia por meio de experiência prática, orientação e aprendizado contínuo.</div></div></section>
+<section id="contato"><div class="wrap"><div class="contact-panel"><div class="contact-grid"><div><div class="kicker">05 / Contato</div><h2>Vamos conversar?</h2><p class="muted">Estou aberto a oportunidades iniciais em suporte de sistemas, atendimento técnico, automação e áreas relacionadas à tecnologia, além de funções administrativas alinhadas à minha experiência.</p><p class="email">E-mail: <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jean.trabalho2004%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio" target="_blank" rel="noopener noreferrer">jean.trabalho2004@gmail.com</a></p></div><div class="actions"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jean.trabalho2004%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio&amp;body=Ol%C3%A1%2C%20Jean!%20Encontrei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer">Enviar e-mail ↗</a><a class="btn" href="https://wa.me/5548998288605?text=Ol%C3%A1%2C%20Jean!%20Encontrei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a class="btn" href="mailto:jean.trabalho2004@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio">Aplicativo de e-mail</a></div></div></div></div></section>
+</main><footer><div class="wrap foot"><span>© <span id="year">2026</span> Jean Carlos Amorim de Mello</span><div class="footlinks"><a href="https://www.linkedin.com/in/jean-amorim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jean.trabalho2004%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio" target="_blank" rel="noopener noreferrer">E-mail ↗</a><a href="https://wa.me/5548998288605?text=Ol%C3%A1%2C%20Jean!%20Encontrei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div><span>Portfólio em evolução · Braço do Norte, SC</span></div></footer>
+<script>
+(function(){
+  const root=document.documentElement;
+  const toggle=document.getElementById('themeToggle');
+  const themeColor=document.querySelector('meta[name="theme-color"]');
+  const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let storedTheme=null;
+  try{storedTheme=localStorage.getItem('portfolio-theme')}catch(error){}
+  function applyTheme(theme,save){
+    root.setAttribute('data-theme',theme);
+    const dark=theme==='dark';
+    toggle.setAttribute('aria-pressed',dark?'true':'false');
+    toggle.setAttribute('aria-label',dark?'Ativar modo claro':'Ativar modo escuro');
+    toggle.innerHTML=dark?'<span aria-hidden="true">☀</span> Modo claro':'<span aria-hidden="true">☾</span> Modo escuro';
+    themeColor.setAttribute('content',dark?'#10191F':'#17384D');
+    if(save){try{localStorage.setItem('portfolio-theme',theme)}catch(error){}}
+  }
+  applyTheme(storedTheme==='dark'||storedTheme==='light'?storedTheme:(prefersDark?'dark':'light'),false);
+  toggle.addEventListener('click',function(){
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    applyTheme(next,true);
+  });
+  if(window.matchMedia){
+    const media=window.matchMedia('(prefers-color-scheme: dark)');
+    const syncSystemTheme=function(event){
+      let saved=null;try{saved=localStorage.getItem('portfolio-theme')}catch(error){}
+      if(saved!=='dark'&&saved!=='light')applyTheme(event.matches?'dark':'light',false);
+    };
+    if(media.addEventListener)media.addEventListener('change',syncSystemTheme);
+    else if(media.addListener)media.addListener(syncSystemTheme);
+  }
+})();
+document.getElementById('year').textContent=new Date().getFullYear();
+document.addEventListener('click',e=>document.querySelectorAll('details.contact[open]').forEach(d=>{if(!d.contains(e.target))d.open=false}));
+</script>
+</body></html>
